@@ -1,0 +1,14 @@
+AngularJS的坑:
+	1.两个$scope莫名其妙的连接起来了！！
+		$scope.$on('editMessage', function(event, editMessage, id) {
+			$scope.title = "修改";
+			$scope.editMessage = editMessage;
+			$scope.id = id;
+		});
+		$scope.editMessage 是两个model,在html里是两个input。
+
+	2.(不属于angular的坑, 是HTML的坑)表单验证的form不能包含td！！
+
+	3.(不属于angular的坑)不能有两个ng-controller
+
+	4.type="email"会导致ng-model失效！！
