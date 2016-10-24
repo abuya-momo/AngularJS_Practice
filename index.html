@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE>
 <html ng-app="contacts-list">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<script type="text/JavaScript" src="framework/angularjs/angular.js"></script>
-<!-- <script type="text/JavaScript" src="framework/node_modules/angular/angular.js"></script> -->
-<!-- <script type="text/JavaScript" src="framework/node_modules/angular/angular.min.js"></script> -->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <script type="text/JavaScript" src="framework/angularjs/angular.js"></script>
+  <!-- <script type="text/JavaScript" src="framework/node_modules/angular/angular.js"></script>
+-->
+<!-- <script type="text/JavaScript" src="framework/node_modules/angular/angular.min.js"></script>
+-->
 <script type="text/JavaScript" src="js/app.js"></script>
 <script type="text/JavaScript" src="js/controller.js"></script>
 <script type="text/JavaScript" src="js/service.js"></script>
@@ -12,8 +14,8 @@
 <style type="text/css">
 <!--
 .STYLE6 {
-	font-size: 24px;
-	font-family: "黑体";
+  font-size: 24px;
+  font-family: "黑体";
 }
 .STYLE7 {font-family: "黑体"; font-size: 18px; }
 .STYLE11 {font-size: 12px; }
@@ -41,135 +43,233 @@ function MM_goToURL() { //v3.0
   var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
   for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
 }
-//-->
-</script>
+//--></script>
 </head>
 
 <body>
-    <div ng-controller="contactGroup">
-      <table width="601" height="234" border="1" align="center" ng-show="ifcontactGroupShow">
-        <tr valign="middle">
-          <td colspan="4" bgcolor="#99FFFF" align="center" valign="middle">
-            <span class="STYLE6">通信录组列表</span> </td>
-        </tr>
-        <tr ng-repeat="x in groupList">
-          <td valign="middle" bgcolor="#FFFFFF"><input name="checkbox2" type="checkbox" value="checkbox" ng-model="x.selected"/></td>
-          <td bgcolor="#FFFFFF"><div align="center" class="STYLE11" ><a class="likeButton" ng-click="showCustomerList1(x.contactGroupId)">{{ x.groupName }}</a></div></td>
-          <td bgcolor="#FFFFFF"><div align="center" class="STYLE11" >{{ x.groupProfile }}</div></td>
-          <td bgcolor="#FFFFFF">
-          <div align="center" class="STYLE11" ng-click="edit(x.contactGroupId)"><a class="likeButton">修改</a></div></td>
-        </tr>
-        <tr valign="middle">
-          <td colspan="4"><div align="center">
-            <input name="Submit2" type="submit" value="添加" ng-click="add()"/>
-            <input type="submit" name="Submit22" value="删除" ng-click="delete()"/>
-          </div></td>
-        </tr>
-      </table>
+<div ng-controller="contactGroup">
+<table width="601" height="234" border="1" align="center" ng-show="ifcontactGroupShow">
+  <tr valign="middle">
+    <td colspan="4" bgcolor="#99FFFF" align="center" valign="middle">
+      <span class="STYLE6">通信录组列表</span>
+    </td>
+  </tr>
+  <tr ng-repeat="x in groupList">
+    <td valign="middle" bgcolor="#FFFFFF">
+      <input name="checkbox2" type="checkbox" value="checkbox" ng-model="x.selected"/>
+    </td>
+    <td bgcolor="#FFFFFF">
+      <div align="center" class="STYLE11" >
+        <a class="likeButton" ng-click="showCustomerList1(x.contactGroupId)">{{ x.groupName }}</a>
+      </div>
+    </td>
+    <td bgcolor="#FFFFFF">
+      <div align="center" class="STYLE11" >{{ x.groupProfile }}</div>
+    </td>
+    <td bgcolor="#FFFFFF">
+      <div align="center" class="STYLE11" ng-click="edit(x.contactGroupId)">
+        <a class="likeButton">修改</a>
+      </div>
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4">
+      <div align="center">
+        <input name="Submit2" type="submit" value="添加" ng-click="add()"/>
+        <input type="submit" name="Submit22" value="删除" ng-click="delete()"/>
+      </div>
+    </td>
+  </tr>
+</table>
 
-      <table width="387" height="194" border="1" align="center" ng-controller="newGroup" ng-show="ifNewGroupShow">
-        <tr>
-          <td height="47" colspan="2" align="center" valign="middle" bgcolor="#CCFFCC"><span class="STYLE1">{{title}}通信组</span></td>
-        </tr>
-        <tr>
-          <td width="85" align="center" valign="middle" bgcolor="#CCCCCC"><div align="center" class="STYLE3">组名</div></td>
-          <td width="254" align="center" valign="middle"><div align="left">
-            <input type="text" name="newGroup" size="40" ng-model="groupName"/>
-          </div></td>
-        </tr>
-        <tr>
-          <td height="78" align="center" valign="middle" bgcolor="#CCCCCC"><div align="center" class="STYLE3">描述</div></td>
-          <td align="center" valign="middle"><div align="center">
-            <div align="left">
-              <textarea name="txtDes" cols="40" rows="4" ng-model="groupProfile"></textarea>
-            </div>
-          </div></td>
-        </tr>
-        <tr>
-          <td height="31" colspan="2" align="center" valign="middle"><div align="center">
-              <input type="submit" name="Submit" value="确定" ng-click="saveNewGroup()"/>
-              <input type="submit" name="Submit2" value="取消" ng-click="notSaveNewGroup()"/>
-          </div>      <div align="center"></div></td>
-        </tr>
-     </table>
-    </div>
+<table width="387" height="194" border="1" align="center" ng-controller="newGroup" ng-show="ifNewGroupShow">
+  <tr>
+    <td height="47" colspan="2" align="center" valign="middle" bgcolor="#CCFFCC">
+      <span class="STYLE1">{{title}}通信组</span>
+    </td>
+  </tr>
+  <tr>
+    <td width="85" align="center" valign="middle" bgcolor="#CCCCCC">
+      <div align="center" class="STYLE3">组名</div>
+    </td>
+    <td width="254" align="center" valign="middle">
+      <div align="left">
+        <input type="text" name="newGroup" size="40" ng-model="groupName"/>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td height="78" align="center" valign="middle" bgcolor="#CCCCCC">
+      <div align="center" class="STYLE3">描述</div>
+    </td>
+    <td align="center" valign="middle">
+      <div align="center">
+        <div align="left">
+          <textarea name="txtDes" cols="40" rows="4" ng-model="groupProfile"></textarea>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td height="31" colspan="2" align="center" valign="middle">
+      <div align="center">
+        <input type="submit" name="Submit" value="确定" ng-click="saveNewGroup()"/>
+        <input type="submit" name="Submit2" value="取消" ng-click="notSaveNewGroup()"/>
+      </div>
+      <div align="center"></div>
+    </td>
+  </tr>
+</table>
+</div>
 
-    <div ng-controller="customerList">
-      <table width="808" border="1" align="center" ng-show="ifCustomerListShow">
-        <tr>
-          <td colspan="8" align="center" valign="middle" bgcolor="#CCFFCC"><div align="center" class="STYLE2">用户列表</div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div></td>
-        </tr>
-        <tr>
-          <td width="65" bgcolor="#FFFFCC"><div align="center" class="STYLE9">选择</div></td>
-          <td width="84" bgcolor="#FFFFCC"><div align="center" class="STYLE9">用户名</div></td>
-          <td width="109" bgcolor="#FFFFCC"><div align="center" class="STYLE9">Email</div></td>
-          <td width="90" bgcolor="#FFFFCC"><div align="center" class="STYLE9">电话</div></td>
-          <td width="86" bgcolor="#FFFFCC"><div align="center" class="STYLE9">邮编</div></td>
-          <td width="267" bgcolor="#FFFFCC"><div align="center" class="STYLE9">地址</div></td>
-          <td width="61" bgcolor="#FFFFCC"><div align="center" class="STYLE9">操作</div></td>
-        </tr>
-        <tr ng-repeat="y in oneGroupUserList">
-          <td><div align="center" class="STYLE10">
-              <input type="checkbox" name="checkbox" ng-model="y.selected"/>
-            </div></td>
-          <td><div align="center" class="STYLE10"><a>{{ y.userName }}</a></div></td>
-          <td><div align="center" class="STYLE11">{{ y.email }}</div></td>
-          <td><div align="center" class="STYLE11">{{ y.phone }}</div></td>
-          <td><div align="center" class="STYLE11">{{ y.postNum }}</div></td>
-          <td><div align="center" class="STYLE11">{{ y.addr }}</div></td>
-          <td><div align="center" class="STYLE10" ng-click="edit(y.id)"><a class="likeButton">修改</a></div></td>
-        </tr>
-        <tr>
-          <td colspan="7"><div align="center">
-              <input name="Submit" type="submit" value="添加" ng-click="add()"/>
-              <input name="Submit2" type="submit" value="删除" ng-click="delete()"/>
-              <input name="Submit3" type="submit" value="返回" ng-click="backToContactGroup()"/>
-          </div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div>      <div align="center"></div></td>
-        </tr>
-      </table>
+<div ng-controller="customerList">
+<table width="808" border="1" align="center" ng-show="ifCustomerListShow">
+  <tr>
+    <td colspan="8" align="center" valign="middle" bgcolor="#CCFFCC">
+      <div align="center" class="STYLE2">用户列表</div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+    </td>
+  </tr>
+  <tr>
+    <td width="65" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">选择</div>
+    </td>
+    <td width="84" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">用户名</div>
+    </td>
+    <td width="109" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">Email</div>
+    </td>
+    <td width="90" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">电话</div>
+    </td>
+    <td width="86" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">邮编</div>
+    </td>
+    <td width="267" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">地址</div>
+    </td>
+    <td width="61" bgcolor="#FFFFCC">
+      <div align="center" class="STYLE9">操作</div>
+    </td>
+  </tr>
+  <tr ng-repeat="y in oneGroupUserList">
+    <td>
+      <div align="center" class="STYLE10">
+        <input type="checkbox" name="checkbox" ng-model="y.selected"/>
+      </div>
+    </td>
+    <td>
+      <div align="center" class="STYLE10">
+        <a>{{ y.userName }}</a>
+      </div>
+    </td>
+    <td>
+      <div align="center" class="STYLE11">{{ y.email }}</div>
+    </td>
+    <td>
+      <div align="center" class="STYLE11">{{ y.phone }}</div>
+    </td>
+    <td>
+      <div align="center" class="STYLE11">{{ y.postNum }}</div>
+    </td>
+    <td>
+      <div align="center" class="STYLE11">{{ y.addr }}</div>
+    </td>
+    <td>
+      <div align="center" class="STYLE10" ng-click="edit(y.id)">
+        <a class="likeButton">修改</a>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="7">
+      <div align="center">
+        <input name="Submit" type="submit" value="添加" ng-click="add()"/>
+        <input name="Submit2" type="submit" value="删除" ng-click="delete()"/>
+        <input name="Submit3" type="submit" value="返回" ng-click="backToContactGroup()"/>
+      </div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+      <div align="center"></div>
+    </td>
+  </tr>
+</table>
 
-      <table width="420" border="1" align="center" ng-controller="newUser" ng-show="ifNewUserShow">
-          <tr>
-            <td height="32" colspan="2" align="center" valign="middle" bgcolor="#99FF99"><span class="STYLE2">{{ title }}用户信息</span></td>
-          </tr>
-          <tr>
-            <td width="94" align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">用户名：</span></td>
-            <td width="310" align="left" valign="middle">
-              <input type="text" name="userName" size="30" ng-model="userName"/>
-            </td>
-          </tr>
-          <tr>
-            <td align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">E-mail：</span></td>
-            <td align="left" valign="middle">
-              <input type="text" name="userEmail" size="30" ng-model="userEmail"/>
-            </td>
-          </tr>
-          <tr>
-            <td align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">电话：</span></td>
-            <td align="left" valign="middle"><input type="text" name="userPhone" size="30" ng-model="phone"/></td>
-          </tr>
-          <tr>
-            <td align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">邮编：</span></td>
-            <td align="left" valign="middle"><input type="text" name="userCode" size="30" ng-model="postNum"/></td>
-          </tr>
-          <tr>
-            <td align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">地址：</span></td>
-            <td align="left" valign="middle"><input type="text" name="userAddress" size="30" ng-model="addr"/></td>
-          </tr>
-          <tr>
-            <td align="left" valign="middle" bgcolor="#CCCCCC"><span class="STYLE5">描述：</span></td>
-            <td align="left" valign="middle"><textarea name="userDes" cols="35" rows="4"></textarea></td>
-          </tr>
-          <tr>
-            <td colspan="2" align="center" valign="middle"><input type="submit" name="Confirm" value="确定" ng-click="saveNewUser()"/>
-            <input type="button" name="Cancel" value="取消" ng-click="notSaveNewUser()"/></td>
-          </tr>
-      </table>
+<table width="420" border="1" align="center" ng-controller="newUser" ng-show="ifNewUserShow">
+  <tr>
+    <td height="32" colspan="2" align="center" valign="middle" bgcolor="#99FF99">
+      <span class="STYLE2">{{ title }}用户信息</span>
+    </td>
+  </tr>
+  <tr>
+    <td width="94" align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">用户名：</span>
+    </td>
+    <td width="310" align="left" valign="middle">
+      <input type="text" name="userName" size="30" ng-model="userName"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">E-mail：</span>
+    </td>
+    <td align="left" valign="middle">
+      <input type="text" name="userEmail" size="30" ng-model="userEmail"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">电话：</span>
+    </td>
+    <td align="left" valign="middle">
+      <input type="text" name="userPhone" size="30" ng-model="phone"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">邮编：</span>
+    </td>
+    <td align="left" valign="middle">
+      <input type="text" name="userCode" size="30" ng-model="postNum"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">地址：</span>
+    </td>
+    <td align="left" valign="middle">
+      <input type="text" name="userAddress" size="30" ng-model="addr"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle" bgcolor="#CCCCCC">
+      <span class="STYLE5">描述：</span>
+    </td>
+    <td align="left" valign="middle">
+      <textarea name="userDes" cols="35" rows="4"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="middle">
+      <input type="submit" name="Confirm" value="确定" ng-click="saveNewUser()"/>
+      <input type="button" name="Cancel" value="取消" ng-click="notSaveNewUser()"/>
+    </td>
+  </tr>
+</table>
 
-    </div>
-    <div class="hint">
-      <p>本示例程序使用AngularJS开发,请在IE9+浏览器环境下运行</p>
-    </div>
+</div>
+<div class="hint">
+<p>本示例程序使用AngularJS开发,请在IE9+浏览器环境下运行</p>
+</div>
 </body>
 
 </html>
