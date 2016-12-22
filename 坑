@@ -22,3 +22,7 @@ AngularJS的坑:
 	8.过滤器是会将输入的东西过滤成返回值的, 过滤器和函数有着本质的区别！
 
 	9.Unknown provider: Provider <-  <- exchangeFilterOption 出现这个报错多半是由于模块引用出了问题, 或者依赖注入出了问题
+
+	10.使用$location.path进行跳转的时候, 跳不过去或者跳到默认页面有可能是app.js里的路由没有定义参数但是在跳转的时候带了参数
+
+	11.填错ng属性有可能出现error不断增加直到耗尽内存: ng-class="somefunction()" 可能导致不断调用
